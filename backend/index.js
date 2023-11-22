@@ -1,3 +1,4 @@
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -5,12 +6,18 @@ import connectDB from "./config/db.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-
 dotenv.config();
 const port = process.env.PORT || 8000;
 await connectDB(); //connect to mongoDB
 const app = express();
 app.use(cors());
+
+//body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//cookie parser middleware
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("api is working");
