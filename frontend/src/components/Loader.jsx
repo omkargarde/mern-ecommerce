@@ -5,6 +5,7 @@ const Loader = () => {
     <Spinner
       animation="border"
       role="status"
+      aria-label="Loading..."
       style={{
         width: "100px",
         height: "100px",

@@ -1,14 +1,17 @@
-import { Badge } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+/* eslint-disable react/prop-types */
+import { Badge, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+
 import { FaShopify, FaShoppingCart, FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    console.log("logout");
+  };
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
@@ -32,11 +35,10 @@ const Header = () => {
                   )}
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/login">
-                <Nav.Link>
-                  <FaUser></FaUser> Sign in
-                </Nav.Link>
-              </LinkContainer>
+              <ProfileLinkDropDown
+                userInfo={userInfo}
+                logoutHandler={logoutHandler}
+              />
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -45,4 +47,23 @@ const Header = () => {
   );
 };
 
-export default Header;
+const ProfileLinkDropDown = ({ userInfo, logoutHandler }) => {
+  if (userInfo) {
+    return (
+      <NavDropdown title={userInfo.name} id="username">
+        <LinkContainer to="/profile">
+          <NavDropdown.Item>Profile</NavDropdown.Item>
+        </LinkContainer>
+        <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+      </NavDropdown>
+    );
+  }
+  return (
+    <LinkContainer to="/login">
+      <Nav.Link>
+        <FaUser></FaUser> Sign in
+      </Nav.Link>
+    </LinkContainer>
+  );
+};
+export default Header;   
