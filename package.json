@@ -9,7 +9,8 @@
     "dev": "node --watch backend/index.js",
     "client": "npm run dev --prefix frontend",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "omkar garde",
