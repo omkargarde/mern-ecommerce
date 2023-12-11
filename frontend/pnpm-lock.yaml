@@ -50,10 +50,10 @@ devDependencies:
     specifier: ^3.3.2
     version: 3.4.0(vite@4.5.1)
   eslint:
-    specifier: ^8.45.0
+    specifier: ^8.52.0
     version: 8.52.0
   eslint-plugin-react:
-    specifier: ^7.32.2
+    specifier: ^7.33.2
     version: 7.33.2(eslint@8.52.0)
   eslint-plugin-react-hooks:
     specifier: ^4.6.0
