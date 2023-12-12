@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch backend/index.js",
+    "start": "node backend/index.js",
     "dev": "node --watch backend/index.js",
     "client": "npm run dev --prefix frontend",
     "data:import": "node backend/seeder",
@@ -19,7 +19,6 @@
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.6.3"

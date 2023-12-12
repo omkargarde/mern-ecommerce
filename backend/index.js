@@ -1,5 +1,4 @@
 import cookieParser from "cookie-parser";
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./config/db.js";
@@ -11,7 +10,6 @@ dotenv.config();
 const port = process.env.PORT || 8000;
 await connectDB(); //connect to mongoDB
 const app = express();
-app.use(cors());
 
 //body parser middleware
 app.use(express.json());
