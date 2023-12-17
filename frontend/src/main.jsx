@@ -11,14 +11,15 @@ import {
 import App from "./App.jsx";
 import "./assets/styles/boostrap.custom.css";
 import "./assets/styles/index.css";
-import OrderScreen from "./screens/OrderScreen.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import CartScreen from "./screens/CartScreen.jsx";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
+import OrderScreen from "./screens/OrderScreen.jsx";
 import PaymentScreen from "./screens/PaymentScreen.jsx";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
 import ProductScreen from "./screens/ProductScreen.jsx";
+import ProfileScreen from "./screens/ProfileScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import ShippingScreen from "./screens/ShippingScreen.jsx";
 import store from "./store.js";
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route path="/payment" element={<PaymentScreen />} />
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
         <Route path="/order/:id" element={<OrderScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
       </Route>
     </Route>
   )
@@ -43,7 +45,7 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true}>
+      <PayPalScriptProvider>
         <RouterProvider router={router} />
       </PayPalScriptProvider>
     </Provider>
