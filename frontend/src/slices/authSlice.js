@@ -6,6 +6,11 @@ const initialState = {
     : null,
 };
 
+/**
+ * authSlice handles authentication state in Redux store.
+ * It has initial state, reducers for login/logout actions,
+ * and exports these reducers and actions.
+ */
 const authSlice = createSlice({
   name: "auth",
   initialState,

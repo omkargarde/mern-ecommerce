@@ -1,6 +1,11 @@
 import { ORDERS_URL, PAYPAL_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
+/**
+ * Exports React Query endpoints for making API requests related to orders.
+ * Includes mutations for creating, paying, delivering orders.
+ * Queries for getting order details, client ID, current user orders, all orders.
+ */
 export const ordersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     createOrder: builder.mutation({
@@ -49,6 +54,7 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
     }),
   }),
 });
+
 
 export const {
   useCreateOrderMutation,

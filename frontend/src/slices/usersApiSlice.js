@@ -1,6 +1,10 @@
 import { USERS_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
+/**
+ * Users API slice to handle login, logout, register and update profile mutations.
+ * Exports the generated React Query mutation hooks for use in components.
+ */
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({

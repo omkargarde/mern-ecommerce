@@ -1,9 +1,20 @@
 import { Alert } from "react-bootstrap";
-// eslint-disable-next-line react/prop-types
 const Message = ({ variant, children }) => {
   return <Alert variant={variant}>{children}</Alert>;
 };
-Message.defaultProps = {
-  variant: "info",
+
+import PropTypes from "prop-types";
+
+Message.propTypes = {
+  variant: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
+
+Message.propTypes = {
+  variant: PropTypes.string.isRequired,
+};
+
+Message.defaultProps = {};
+
+
 export default Message;

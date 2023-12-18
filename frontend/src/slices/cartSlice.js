@@ -6,6 +6,12 @@ const initialState = localStorage.getItem("cart")
   : { cartItems: [], shippingAddress: {}, paymentMethod: "paypal" };
 
 // createSlice is used for global state management
+/**
+ * Cart slice to manage cart state with Redux Toolkit.
+ * Defines cart reducer with initial state and reducers to
+ * handle add/remove items, update shipping/payment info, clear cart.
+ * Exports reducer and action creators.
+ */
 const cartSlice = createSlice({
   name: "cart",
   initialState,
