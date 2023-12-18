@@ -9,14 +9,14 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.jsx";
-import "./assets/styles/boostrap.custom.css";
+// import "./assets/styles/boostrap.custom.css";
+// import "./assets/styles/bootstrap.css";
 import "./assets/styles/index.css";
 import AdminRoute from "./components/AdminRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import CartScreen from "./screens/CartScreen.jsx";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
-import OrderListScreen from "./screens/OrderListScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
 import PaymentScreen from "./screens/PaymentScreen.jsx";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
@@ -24,6 +24,7 @@ import ProductScreen from "./screens/ProductScreen.jsx";
 import ProfileScreen from "./screens/ProfileScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import ShippingScreen from "./screens/ShippingScreen.jsx";
+import OrderListScreen from "./screens/admin/OrderListScreen.jsx";
 import store from "./store.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
