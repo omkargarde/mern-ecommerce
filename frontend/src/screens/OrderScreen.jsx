@@ -1,14 +1,6 @@
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useEffect } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Image,
-  ListGroup,
-  Row,
-} from "react-bootstrap";
+import { Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -35,7 +27,7 @@ const OrderScreen = () => {
     isLoading: loadingPayPal,
     error: errorPayPal,
   } = useGetPayPalClientIdQuery();
-  const { userInfo } = useSelector((state) => state.auth);
+  // const { userInfo } = useSelector((state) => state.auth);
   useEffect(() => {
     if (!errorPayPal && !loadingPayPal && paypal.clientId) {
       const loadingPayPalScript = async () => {
