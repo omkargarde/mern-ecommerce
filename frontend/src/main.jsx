@@ -9,8 +9,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.jsx";
-// import "./assets/styles/boostrap.custom.css";
-// import "./assets/styles/bootstrap.css";
 import "./assets/styles/index.css";
 import AdminRoute from "./components/AdminRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
@@ -25,6 +23,7 @@ import ProfileScreen from "./screens/ProfileScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import ShippingScreen from "./screens/ShippingScreen.jsx";
 import OrderListScreen from "./screens/admin/OrderListScreen.jsx";
+import ProductListScreen from "./screens/admin/ProductListScreen.jsx";
 import store from "./store.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +43,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
+        <Route path="/admin/productlist" element={<ProductListScreen />} />
       </Route>
     </Route>
   )
