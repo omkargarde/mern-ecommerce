@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import { Badge, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { FaShopify, FaShoppingCart, FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -92,4 +93,10 @@ const ProfileLinkDropDown = ({ userInfo, logoutHandler }) => {
     </LinkContainer>
   );
 };
+
+ProfileLinkDropDown.propTypes = {
+  userInfo: PropTypes.object.isRequired,
+  logoutHandler: PropTypes.func.isRequired,
+};
+
 export default Header;

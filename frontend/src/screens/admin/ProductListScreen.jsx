@@ -1,5 +1,5 @@
 import { Button, Col, Row, Table } from "react-bootstrap";
-import { FaEdit, FaTimes, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader";
@@ -57,7 +57,7 @@ const ProductListScreen = () => {
               <td>{product.category}</td>
               <td>{product.brand}</td>
               <td>
-                <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                <LinkContainer to={`/admin/productlist/${product._id}/edit`}>
                   <Button variant="light" className="btn-sm mx-2">
                     <FaEdit />
                   </Button>
