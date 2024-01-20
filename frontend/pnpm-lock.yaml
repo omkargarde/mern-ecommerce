@@ -51,7 +51,7 @@ devDependencies:
     version: 18.2.18
   '@vitejs/plugin-react-swc':
     specifier: ^3.3.2
-    version: 3.5.0(vite@4.5.1)
+    version: 3.5.0(vite@4.5.2)
   eslint:
     specifier: ^8.52.0
     version: 8.56.0
@@ -65,11 +65,11 @@ devDependencies:
     specifier: ^0.4.3
     version: 0.4.5(eslint@8.56.0)
   vite:
-    specifier: ^4.5.1
-    version: 4.5.1
+    specifier: ^4.5.2
+    version: 4.5.2
   vite-plugin-eslint:
     specifier: ^1.8.1
-    version: 1.8.1(eslint@8.56.0)(vite@4.5.1)
+    version: 1.8.1(eslint@8.56.0)(vite@4.5.2)
 
 packages:
 
@@ -636,13 +636,13 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-react-swc@3.5.0(vite@4.5.1):
+  /@vitejs/plugin-react-swc@3.5.0(vite@4.5.2):
     resolution: {integrity: sha512-1PrOvAaDpqlCV+Up8RkAh9qaiUjoDUcjtttyhXDKw53XA6Ve16SOp6cCOpRs8Dj8DqUQs6eTW5YkLcLJjrXAig==}
     peerDependencies:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.3.100
-      vite: 4.5.1
+      vite: 4.5.2
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -2357,7 +2357,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /vite-plugin-eslint@1.8.1(eslint@8.56.0)(vite@4.5.1):
+  /vite-plugin-eslint@1.8.1(eslint@8.56.0)(vite@4.5.2):
     resolution: {integrity: sha512-PqdMf3Y2fLO9FsNPmMX+//2BF5SF8nEWspZdgl4kSt7UvHDRHVVfHvxsD7ULYzZrJDGRxR81Nq7TOFgwMnUang==}
     peerDependencies:
       eslint: '>=7'
@@ -2367,11 +2367,11 @@ packages:
       '@types/eslint': 8.44.9
       eslint: 8.56.0
       rollup: 2.79.1
-      vite: 4.5.1
+      vite: 4.5.2
     dev: true
 
-  /vite@4.5.1:
-    resolution: {integrity: sha512-AXXFaAJ8yebyqzoNB9fu2pHoo/nWX+xZlaRwoeYUxEqBO+Zj4msE5G+BhGBll9lYEKv9Hfks52PAF2X7qDYXQA==}
+  /vite@4.5.2:
+    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
