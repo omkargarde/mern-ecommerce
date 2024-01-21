@@ -28,7 +28,7 @@ const ProductEditScreen = () => {
   } = useGetProductsDetailsQuery(productId);
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
-  const [uploadProductIamge, { isLoading: loadingUpload }] =
+  const [uploadProductImage, { isLoading: loadingUpload }] =
     useUploadProductImageMutation();
 
   const navigate = useNavigate();
@@ -78,6 +78,15 @@ const ProductEditScreen = () => {
    * @return {Promise} A promise that resolves when the upload is complete.
    */
   const uploadFileHandler = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
+    } catch (error) {
+      toast.error(error?.data?.message || error?.message || error?.error);
+    }
     console.log(e.target.files[0]);
   };
   if (error) {
@@ -125,7 +134,7 @@ const ProductEditScreen = () => {
               type="text"
               placeholder="Enter image URL"
               value={image}
-              onChange={(e) => setImage}
+              onChange={(e) => setImage(e.target.value)}
             />
             <Form.Control
               type="file"
