@@ -10,7 +10,7 @@
     "client": "npm run dev --prefix frontend",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "yarn install && yarn install --prefix frontend && yarn run build --prefix frontend"
   },
   "keywords": [],
   "author": "omkar garde",
