@@ -6,17 +6,36 @@ import Loader from "../../components/Loader";
 import Message from "../../components/Message";
 import {
   useCreateProductMutation,
+  useDeleteProductMutation,
   useGetProductsQuery,
 } from "../../slices/productApiSlice";
 const ProductListScreen = () => {
   const { data: products, isLoading, error, refetch } = useGetProductsQuery();
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
+  const [deleteProduct, { isLoading: loadingDelete }] =
+    useDeleteProductMutation();
 
-  const deleteHandler = (id) => {
-    console.log(id);
+  /**
+   * Asynchronous function for handling the deletion of a specified item.
+   *
+   * @param {type} id - The identifier of the item to be deleted
+   * @return {type} undefined
+   */
+  const deleteHandler = async (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      try {
+        await deleteProduct(id).unwrap();
+        refetch();
+      } catch (error) {
+        toast.error(error?.data?.message || error?.error);
+      }
+    }
   };
 
+  /**
+   * Asynchronous function for creating a product.
+   */
   const createProductHandler = async () => {
     if (window.confirm("Are you sure you want to create this product?")) {
       try {
@@ -93,6 +112,7 @@ const ProductListScreen = () => {
         </Col>
       </Row>
       {loadingCreate && <Loader />}
+      {loadingDelete && <Loader />}
       {content}
     </>
   );

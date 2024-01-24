@@ -5,8 +5,16 @@ import Product from "../models/productModel.js";
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({});
-  res.json(products);
+  try {
+    const products = await Product.find({});
+    if (!products) {
+      res.status(404).json({ message: "No products found" });
+    } else {
+      res.json(products);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // @desc    Fetch single product
@@ -65,4 +73,25 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { createProduct, getProductById, getProducts, updateProduct };
+// @desc    Delete product
+// @route   DELETE /api/products/:id
+// @access  Private/Admin
+const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    await product.deleteOne({ _id: product._id });
+    res.status(200).json({ message: "Product deleted successfully" });
+  } else {
+    res.status(404);
+    throw new Error("Resource not found");
+  }
+});
+
+export {
+  createProduct,
+  deleteProduct,
+  getProductById,
+  getProducts,
+  updateProduct,
+};
