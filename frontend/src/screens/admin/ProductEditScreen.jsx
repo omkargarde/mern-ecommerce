@@ -72,6 +72,7 @@ const ProductEditScreen = () => {
   };
 
   /**
+   * 
    * Handles the upload of a file.
    *
    * @param {Event} e - The event object triggered by the upload.
