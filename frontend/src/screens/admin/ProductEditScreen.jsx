@@ -72,7 +72,7 @@ const ProductEditScreen = () => {
   };
 
   /**
-   * 
+   *
    * Handles the upload of a file.
    *
    * @param {Event} e - The event object triggered by the upload.
@@ -100,12 +100,19 @@ const ProductEditScreen = () => {
   if (loadingUpdate) {
     return <Loader />;
   }
+  if (isLoading) {
+    return <Loader />;
+  }
+  if (loadingUpload) {
+    return <Loader />;
+  }
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
         Go back
       </Link>
       <FormContainer>
+        <h1>Edit Product</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>
