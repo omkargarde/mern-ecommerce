@@ -3,10 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
+	Route,
+	RouterProvider,
+	createBrowserRouter,
+	createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.jsx";
 import "./assets/styles/index.css";
@@ -29,40 +29,41 @@ import UserEditScreen from "./screens/admin/UserEditScreen.jsx";
 import UserListScreen from "./screens/admin/UserListScreen.jsx";
 import store from "./store.js";
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<HomeScreen />} />
-      <Route path="/product/:id" element={<ProductScreen />} />
-      <Route path="/cart" element={<CartScreen />} />
-      <Route path="/login" element={<LoginScreen />} />
-      <Route path="/register" element={<RegisterScreen />} />
+	createRoutesFromElements(
+		<Route path="/" element={<App />}>
+			<Route index={true} path="/" element={<HomeScreen />} />
+			<Route path="/page/:pageNumber" element={<HomeScreen />} />
+			<Route path="/product/:id" element={<ProductScreen />} />
+			<Route path="/cart" element={<CartScreen />} />
+			<Route path="/login" element={<LoginScreen />} />
+			<Route path="/register" element={<RegisterScreen />} />
 
-      <Route path="" element={<PrivateRoute />}>
-        <Route path="/shipping" element={<ShippingScreen />} />
-        <Route path="/payment" element={<PaymentScreen />} />
-        <Route path="/placeorder" element={<PlaceOrderScreen />} />
-        <Route path="/order/:id" element={<OrderScreen />} />
-        <Route path="/profile" element={<ProfileScreen />} />
-      </Route>
-      <Route path="" element={<AdminRoute />}>
-        <Route path="/admin/orderlist" element={<OrderListScreen />} />
-        <Route path="/admin/productlist" element={<ProductListScreen />} />
-        <Route
-          path="/admin/productlist/:id/edit"
-          element={<ProductEditScreen />}
-        />
-        <Route path="/admin/userlist" element={<UserListScreen />} />
-        <Route path="/admin/userlist/:id/edit" element={<UserEditScreen />} />
-      </Route>
-    </Route>
-  )
+			<Route path="" element={<PrivateRoute />}>
+				<Route path="/shipping" element={<ShippingScreen />} />
+				<Route path="/payment" element={<PaymentScreen />} />
+				<Route path="/placeorder" element={<PlaceOrderScreen />} />
+				<Route path="/order/:id" element={<OrderScreen />} />
+				<Route path="/profile" element={<ProfileScreen />} />
+			</Route>
+			<Route path="" element={<AdminRoute />}>
+				<Route path="/admin/orderlist" element={<OrderListScreen />} />
+				<Route path="/admin/productlist" element={<ProductListScreen />} />
+				<Route
+					path="/admin/productlist/:id/edit"
+					element={<ProductEditScreen />}
+				/>
+				<Route path="/admin/userlist" element={<UserListScreen />} />
+				<Route path="/admin/userlist/:id/edit" element={<UserEditScreen />} />
+			</Route>
+		</Route>,
+	),
 );
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PayPalScriptProvider>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
-    </Provider>
-  </React.StrictMode>
+	<React.StrictMode>
+		<Provider store={store}>
+			<PayPalScriptProvider>
+				<RouterProvider router={router} />
+			</PayPalScriptProvider>
+		</Provider>
+	</React.StrictMode>,
 );
