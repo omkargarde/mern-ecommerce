@@ -5,17 +5,22 @@ import Product from "../models/productModel.js";
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-	const pageSize = 2; //change later
+	const pageSize = 4; //change later
 	const page = Number(req.query.pageNumber) || 1; //get page number from url
-	const count = await Product.countDocuments();
+
+	const keyword = req.query.keyword
+		? { name: { $regex: req.query.keyword, $options: "i" } }
+		: {};
+
+	const count = await Product.countDocuments({ ...keyword });
 	try {
-		const products = await Product.find({})
+		const products = await Product.find({ ...keyword })
 			.limit(pageSize)
 			.skip(pageSize * (page - 1));
 		if (!products) {
 			res.status(404).json({ message: "No products found" });
 		} else {
-			res.json({products,page,pages:Math.ceil(count/pageSize)});
+			res.json({ products, page, pages: Math.ceil(count / pageSize) });
 		}
 	} catch (error) {
 		res.status(500).json({ message: error.message });
