@@ -1,23 +1,17 @@
 const notFound = (req, res, next) => {
-  const error = new Error(`Not Found - ${req.originalUrl}`);
-  res.status(404);
-  next(error);
+	const error = new Error(`Not Found - ${req.originalUrl}`);
+	res.status(404);
+	next(error);
 };
 
 const errorHandler = (err, req, res, next) => {
-  let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-  let message = err.message;
+	const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+	const message = err.message;
 
-  //Wrong Mongoose Object ID
-  if (err.name === "CastError" && err.kind === "ObjectId") {
-    message = `Resource not found. Invalid: ${err.path}`;
-    statusCode = 404;
-  }
-
-  res.status(statusCode).json({
-    message,
-    stack: process.env.NODE_ENV === "production" ? null : err.stack,
-  });
+	res.status(statusCode).json({
+		message,
+		stack: process.env.NODE_ENV === "production" ? null : err.stack,
+	});
 };
 
 export { errorHandler, notFound };

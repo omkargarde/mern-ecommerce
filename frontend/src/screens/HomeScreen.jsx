@@ -20,7 +20,7 @@ const HomeScreen = () => {
 	} else if (isError) {
 		content = (
 			<Message variant="danger">
-				{isError?.data?.message || isError.error || isError.message}
+				{isError?.data?.message || isError.error}
 			</Message>
 		);
 	} else {

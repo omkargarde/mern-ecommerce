@@ -58,7 +58,7 @@ const ProductListScreen = () => {
 		content = <Loader />;
 	} else if (error) {
 		content = (
-			<Message variant="danger">{error.data.message || error.error}</Message>
+			<Message variant="danger">{error?.data?.message || error?.error}</Message>
 		);
 	} else {
 		content = (

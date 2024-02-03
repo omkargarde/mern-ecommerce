@@ -13,6 +13,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import Meta from "../components/Meta";
 import Rating from "../components/Rating";
 import { addToCart } from "../slices/cartSlice";
 import {
@@ -67,7 +68,7 @@ const ProductScreen = () => {
 	if (isError) {
 		return (
 			<Message variant="danger">
-				{isError?.data?.message || isError.error}
+				{isError?.data?.message || isError?.error}
 			</Message>
 		);
 	}
@@ -76,6 +77,7 @@ const ProductScreen = () => {
 	}
 	return (
 		<>
+			<Meta title={product.name} />
 			<Link className="btn btn-light my-3" to="/">
 				Go Back
 			</Link>
